@@ -1,0 +1,7 @@
+[package]
+name = "jsonrpc-test"
+version = "0.1.0"
+authors = ["Shaka Chen <scchen@libgirl.com>"]
+
+[dependencies]
+jsonrpc-minihttp-server = { git = "https://github.com/paritytech/jsonrpc" }
