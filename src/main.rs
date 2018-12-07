@@ -6,12 +6,12 @@ use jsonrpc_minihttp_server::jsonrpc_core::*;
 fn main() {
     let mut io = IoHandler::default();
     io.add_method("say_hello", |_params| {
-        println!("got messages");
+        println!("say_hello called");
         futures::finished(Value::String("hello".to_owned()))
     });
 
     io.add_method("sum", |params: Params| {
-        println!("got messages");
+        println!("sum called");
         println!("{:?}", params);
 
         let args: [i32; 2] = params.parse().unwrap();
@@ -25,7 +25,5 @@ fn main() {
 	.start_http(&"127.0.0.1:3030".parse().unwrap())
 	.expect("Unable to start RPC server");
 
-    println!("started");
-    
     server.wait().unwrap();
 }
